@@ -39,7 +39,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
     var error_msg = get_error(result);
 
     $("#main-alert .alert").attr("class", "alert alert-error");
-    $("#main-alert .alert-msg").html("<strong>Error: </strong>"+error_msg);
+    $("#main-alert .alert-msg").html("<strong>错误: </strong>"+error_msg);
     $("#main-alert").show();
   }
 
@@ -86,7 +86,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
 
   return {
     init: function(path, onready) {
-      var connect_msg_id = main_alert("alert-info", "connecting...");
+      var connect_msg_id = main_alert("alert-info", "连接中...");
       $("#add-task-option-wrap").empty().append(YAAW.tpl.add_task_option({}));
       $("#aria2-gsetting").empty().append(YAAW.tpl.aria2_global_setting({}));
 
@@ -662,7 +662,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
           var title = "↓"+YAAW.tpl.view.format_size_0()(result.downloadSpeed);
           if (result.uploadSpeed > 0)
             title += " ↑"+YAAW.tpl.view.format_size_0()(result.uploadSpeed);
-          title += " - Yet Another Aria2 Web Frontend";
+          title += " - Aria2 远程控制";
           document.title = title;
         }
       );

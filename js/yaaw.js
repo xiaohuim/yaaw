@@ -82,7 +82,7 @@ var YAAW = (function() {
           indexes.push(n.getAttribute("data-index"));
         });
         if (indexes.length == 0) {
-          ARIA2.main_alert("alert-error", "At least one file should be selected. Or just stop the task.", 5000);
+          ARIA2.main_alert("alert-error", "选择至少一个文件。", 5000);
         } else {
           var options = {
             "select-file": indexes.join(","),
@@ -241,12 +241,12 @@ var YAAW = (function() {
 
         format_time: function() {
           var time_interval = [60, 60, 24];
-          var time_text = ["s", "m", "h"];
+          var time_text = ["秒", "分", "时"];
           return function format_time(time) {
             if (time == Infinity) {
-              return "INF";
+              return "无限";
             } else if (time == 0) {
-              return "0s";
+              return "0秒";
             }
 
             time = Math.floor(time);
@@ -258,7 +258,7 @@ var YAAW = (function() {
               i++;
             }
             if (time > 0) {
-              result = time + "d" + result;
+              result = time + "天" + result;
             }
             return result;
           };
@@ -348,7 +348,7 @@ var YAAW = (function() {
       },
       
       clean: function() {
-        $("#uri-input").attr("placeholder", "HTTP, FTP or Magnet");
+        $("#uri-input").attr("placeholder", "HTTP, FTP 或 Magnet");
         $("#add-task-modal .input-clear").val("");
         $("#add-task-alert").hide();
         torrent_file = null;

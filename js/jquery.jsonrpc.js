@@ -242,7 +242,7 @@
       _response: function(json) {
         if (typeof(json) === 'undefined' || json === "") {
           return {
-            error: 'Internal server error',
+            error: '服务器连接出错',
             version: '2.0'
           };
         }
@@ -254,14 +254,14 @@
 
             if (($.isArray(json) && json.length > 0 && json[0].jsonrpc !== '2.0') ||
                 (!$.isArray(json) && json.jsonrpc !== '2.0')) {
-              throw 'Version error';
+              throw '版本错误';
             }
 
             return json;
           }
           catch (e) {
             return {
-              error: 'Internal server error: ' + e,
+              error: '服务器内部错误: ' + e,
               version: '2.0'
             }
           }
